@@ -1,0 +1,35 @@
+##Дана последовательность, которая содержит
+##заглавные буквы латинского алфавита и цифры,
+##среди них встречается пробел. Определить количество
+##подпоследовательностей, разделенных пробелом,
+##в которых есть символы, которые встречаются два раза
+##(так же другие символы могут встречаться несколько раз или быть уникальными).
+##Данные в файле 24-268-1.txt и 24-268.txt
+
+with open('24-268.txt') as f:
+    s = f.read().strip()
+res = s.split() #
+
+def sl(line):       
+       for i in line:
+              if i in prom_sl:
+                     prom_sl[i] += 1
+              else:
+                     prom_sl[i] = 1
+
+count_posl = 0
+for line in res:
+       prom_sl = {}
+       sl(line)
+       prom_count = 0
+       for i in prom_sl:
+              
+              if prom_sl[i] == 2:
+                     
+                     prom_count += 1
+       if prom_count >= 1:
+              count_posl += 1
+              print(prom_sl)
+print(count_posl)
+
+## Ответ 9             
